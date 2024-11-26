@@ -1,56 +1,55 @@
 ﻿using Telegram.Bot.Types;
+using TelegremBot;
 
 namespace TelegramBot
 {
     class TaskManager
     {
         private static List<Task> _tasks;
-        private static string _message;
         public static List<Task> Tasks { get => _tasks; set => _tasks = value; }
-        public static string Message { get => _message; set => _message = value; }
         public TaskManager(List<Task> tasks)
         {
             Tasks = tasks;
         }
         public static string AddTask(Task task)// по возможности улучшить 
         {
-            Message = "Задача добавлена";
-            if (Exist(task)) 
+            if (Exist(task))
             {
-                Message = "такая задача уже есть";
-                return Message;
+                return MessageInfo.GetMessage(TypeMessage.TaskAdded);
+                Tasks.Add(task);
             }
-            Tasks.Add(task);
-            return Message;
-            
+            return MessageInfo.GetMessage(TypeMessage.Nonexistent);
+
         }
         public static string RemoveTask(Task task) // по возможности улучшить  
         {
-            Message = "Задача удалена";
             if (Exist(task))
             {
                 Tasks.Remove(task);
-                return Message;
+                return MessageInfo.GetMessage(TypeMessage.TaskDeleted);
             }
-            return Message;
+            return MessageInfo.GetMessage(TypeMessage.Nonexistent);
         }
         public static string UpdateTask(Task task) // доделать UpdateTask
         {
-            Message = "Задача обновлена";
             if (Exist(task))
             {
                 foreach (var item in Tasks)
                 {
                     if (item == task)
                     {
-
+                        item.Name = task.Name;
+                        item.Description = task.Description;
+                        item.StartDate = task.StartDate;
+                        item.FinishDate = task.FinishDate;
+                        item.Priority = task.Priority;
+                        break;
                     }
-                    
+
                 }
-                return Message;
+                return MessageInfo.GetMessage(TypeMessage.TaskUpdated);
             }
-            Message = "";
-            return Message;
+            return MessageInfo.GetMessage(TypeMessage.Nonexistent);
         }
         private static bool Exist(Task task) // может переделать 
         {
