@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gSdXkMtpTiA=",
+  "dgSpecHash": "qdUtLEerx0c=",
   "success": true,
-  "projectFilePath": "C:\\Users\\STUDENT\\Desktop\\TaskManager\\TaskManager\\TelegremBot\\TelegremBot\\TelegremBot.csproj",
+  "projectFilePath": "C:\\Users\\STUDENT\\Desktop\\Task Manager\\TaskManager\\TelegremBot\\TelegremBot\\TelegremBot.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\STUDENT\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\8.0.0\\microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\STUDENT\\.nuget\\packages\\microsoft.extensions.configuration.binder\\8.0.0\\microsoft.extensions.configuration.binder.8.0.0.nupkg.sha512",

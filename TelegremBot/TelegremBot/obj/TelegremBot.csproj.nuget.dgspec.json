@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\STUDENT\\Desktop\\TaskManager\\TaskManager\\TelegremBot\\TelegremBot\\TelegremBot.csproj": {}
+    "C:\\Users\\STUDENT\\Desktop\\Task Manager\\TaskManager\\TelegremBot\\TelegremBot\\TelegremBot.csproj": {}
   },
   "projects": {
-    "C:\\Users\\STUDENT\\Desktop\\TaskManager\\TaskManager\\TelegremBot\\TelegremBot\\TelegremBot.csproj": {
+    "C:\\Users\\STUDENT\\Desktop\\Task Manager\\TaskManager\\TelegremBot\\TelegremBot\\TelegremBot.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\STUDENT\\Desktop\\TaskManager\\TaskManager\\TelegremBot\\TelegremBot\\TelegremBot.csproj",
+        "projectUniqueName": "C:\\Users\\STUDENT\\Desktop\\Task Manager\\TaskManager\\TelegremBot\\TelegremBot\\TelegremBot.csproj",
         "projectName": "TelegremBot",
-        "projectPath": "C:\\Users\\STUDENT\\Desktop\\TaskManager\\TaskManager\\TelegremBot\\TelegremBot\\TelegremBot.csproj",
+        "projectPath": "C:\\Users\\STUDENT\\Desktop\\Task Manager\\TaskManager\\TelegremBot\\TelegremBot\\TelegremBot.csproj",
         "packagesPath": "C:\\Users\\STUDENT\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\STUDENT\\Desktop\\TaskManager\\TaskManager\\TelegremBot\\TelegremBot\\obj\\",
+        "outputPath": "C:\\Users\\STUDENT\\Desktop\\Task Manager\\TaskManager\\TelegremBot\\TelegremBot\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\STUDENT\\AppData\\Roaming\\NuGet\\NuGet.Config",
