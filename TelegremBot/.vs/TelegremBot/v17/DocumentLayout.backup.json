@@ -1,8 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\STUDENT\\Desktop\\Task Manager\\TaskManager\\TelegremBot\\",
+  "WorkspaceRootPath": "C:\\Users\\vaso\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Task Manager\\TaskManager\\TelegremBot\\",
   "Documents": [
     {
+<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{738CA525-DA7D-4479-A5BC-D86347D8062C}|TelegremBot\\TelegremBot.csproj|c:\\users\\student\\desktop\\task manager\\taskmanager\\telegrembot\\telegrembot\\messageinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{738CA525-DA7D-4479-A5BC-D86347D8062C}|TelegremBot\\TelegremBot.csproj|solutionrelative:telegrembot\\messageinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -21,6 +22,26 @@
     {
       "AbsoluteMoniker": "D:0:0:{738CA525-DA7D-4479-A5BC-D86347D8062C}|TelegremBot\\TelegremBot.csproj|c:\\users\\student\\desktop\\task manager\\taskmanager\\telegrembot\\telegrembot\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{738CA525-DA7D-4479-A5BC-D86347D8062C}|TelegremBot\\TelegremBot.csproj|solutionrelative:telegrembot\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+=======
+      "AbsoluteMoniker": "D:0:0:{738CA525-DA7D-4479-A5BC-D86347D8062C}|TelegremBot\\TelegremBot.csproj|c:\\users\\vaso\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\task manager\\taskmanager\\telegrembot\\telegrembot\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{738CA525-DA7D-4479-A5BC-D86347D8062C}|TelegremBot\\TelegremBot.csproj|solutionrelative:telegrembot\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{738CA525-DA7D-4479-A5BC-D86347D8062C}|TelegremBot\\TelegremBot.csproj|c:\\users\\vaso\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\task manager\\taskmanager\\telegrembot\\telegrembot\\keyboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{738CA525-DA7D-4479-A5BC-D86347D8062C}|TelegremBot\\TelegremBot.csproj|solutionrelative:telegrembot\\keyboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{738CA525-DA7D-4479-A5BC-D86347D8062C}|TelegremBot\\TelegremBot.csproj|c:\\users\\vaso\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\task manager\\taskmanager\\telegrembot\\telegrembot\\taskmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{738CA525-DA7D-4479-A5BC-D86347D8062C}|TelegremBot\\TelegremBot.csproj|solutionrelative:telegrembot\\taskmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{738CA525-DA7D-4479-A5BC-D86347D8062C}|TelegremBot\\TelegremBot.csproj|c:\\users\\vaso\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\task manager\\taskmanager\\telegrembot\\telegrembot\\messageinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{738CA525-DA7D-4479-A5BC-D86347D8062C}|TelegremBot\\TelegremBot.csproj|solutionrelative:telegrembot\\messageinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{738CA525-DA7D-4479-A5BC-D86347D8062C}|TelegremBot\\TelegremBot.csproj|c:\\users\\vaso\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\task manager\\taskmanager\\telegrembot\\telegrembot\\task.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{738CA525-DA7D-4479-A5BC-D86347D8062C}|TelegremBot\\TelegremBot.csproj|solutionrelative:telegrembot\\task.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+>>>>>>> feature
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +51,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,24 +59,36 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 0,
+=======
+              "DocumentIndex": 3,
+>>>>>>> feature
               "Title": "MessageInfo.cs",
-              "DocumentMoniker": "C:\\Users\\STUDENT\\Desktop\\Task Manager\\TaskManager\\TelegremBot\\TelegremBot\\MessageInfo.cs",
+              "DocumentMoniker": "C:\\Users\\vaso\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Task Manager\\TaskManager\\TelegremBot\\TelegremBot\\MessageInfo.cs",
               "RelativeDocumentMoniker": "TelegremBot\\MessageInfo.cs",
-              "ToolTip": "C:\\Users\\STUDENT\\Desktop\\Task Manager\\TaskManager\\TelegremBot\\TelegremBot\\MessageInfo.cs",
+              "ToolTip": "C:\\Users\\vaso\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Task Manager\\TaskManager\\TelegremBot\\TelegremBot\\MessageInfo.cs",
               "RelativeToolTip": "TelegremBot\\MessageInfo.cs",
+<<<<<<< HEAD
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAFAAAAAAAAAA==",
+=======
+              "ViewState": "AgIAAD0AAAAAAAAAAAAgwFgAAAAQAAAAAAAAAA==",
+>>>>>>> feature
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-26T03:29:31.96Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 1,
+=======
+              "DocumentIndex": 4,
+>>>>>>> feature
               "Title": "Task.cs",
-              "DocumentMoniker": "C:\\Users\\STUDENT\\Desktop\\Task Manager\\TaskManager\\TelegremBot\\TelegremBot\\Task.cs",
+              "DocumentMoniker": "C:\\Users\\vaso\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Task Manager\\TaskManager\\TelegremBot\\TelegremBot\\Task.cs",
               "RelativeDocumentMoniker": "TelegremBot\\Task.cs",
-              "ToolTip": "C:\\Users\\STUDENT\\Desktop\\Task Manager\\TaskManager\\TelegremBot\\TelegremBot\\Task.cs",
+              "ToolTip": "C:\\Users\\vaso\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Task Manager\\TaskManager\\TelegremBot\\TelegremBot\\Task.cs",
               "RelativeToolTip": "TelegremBot\\Task.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAABKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -65,6 +98,7 @@
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "TaskManager.cs",
+<<<<<<< HEAD
               "DocumentMoniker": "C:\\Users\\STUDENT\\Desktop\\Task Manager\\TaskManager\\TelegremBot\\TelegremBot\\TaskManager.cs",
               "RelativeDocumentMoniker": "TelegremBot\\TaskManager.cs",
               "ToolTip": "C:\\Users\\STUDENT\\Desktop\\Task Manager\\TaskManager\\TelegremBot\\TelegremBot\\TaskManager.cs",
@@ -88,10 +122,37 @@
             {
               "$type": "Document",
               "DocumentIndex": 4,
+=======
+              "DocumentMoniker": "C:\\Users\\vaso\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Task Manager\\TaskManager\\TelegremBot\\TelegremBot\\TaskManager.cs",
+              "RelativeDocumentMoniker": "TelegremBot\\TaskManager.cs",
+              "ToolTip": "C:\\Users\\vaso\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Task Manager\\TaskManager\\TelegremBot\\TelegremBot\\TaskManager.cs",
+              "RelativeToolTip": "TelegremBot\\TaskManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T15:04:53.957Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Keyboard.cs",
+              "DocumentMoniker": "C:\\Users\\vaso\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Task Manager\\TaskManager\\TelegremBot\\TelegremBot\\Keyboard.cs",
+              "RelativeDocumentMoniker": "TelegremBot\\Keyboard.cs",
+              "ToolTip": "C:\\Users\\vaso\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Task Manager\\TaskManager\\TelegremBot\\TelegremBot\\Keyboard.cs",
+              "RelativeToolTip": "TelegremBot\\Keyboard.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T14:57:58.096Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+>>>>>>> feature
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\STUDENT\\Desktop\\Task Manager\\TaskManager\\TelegremBot\\TelegremBot\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\vaso\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Task Manager\\TaskManager\\TelegremBot\\TelegremBot\\Program.cs",
               "RelativeDocumentMoniker": "TelegremBot\\Program.cs",
-              "ToolTip": "C:\\Users\\STUDENT\\Desktop\\Task Manager\\TaskManager\\TelegremBot\\TelegremBot\\Program.cs",
+              "ToolTip": "C:\\Users\\vaso\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Task Manager\\TaskManager\\TelegremBot\\TelegremBot\\Program.cs",
               "RelativeToolTip": "TelegremBot\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
