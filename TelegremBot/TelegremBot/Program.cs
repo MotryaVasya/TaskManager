@@ -6,7 +6,7 @@ namespace TelegramBot
     {
         private static readonly string BotToken = "7559173892:AAGF9i5R8FiGhdM6M4UpjycTWDa8ku2Fyc8";
 
-        static async System.Threading.Tasks.Task Main(string[] args)
+        static async System.Threading.Tasks.Task Main(string[] args) // сделать методы под все кнопки
         {
             var botClient = new TelegramBotClient(BotToken);
 
@@ -32,11 +32,6 @@ namespace TelegramBot
 
             Console.ReadLine(); // Чтобы приложение не завершалось
         }
-        static void AddTask()
-        {
-
-        }
-
     }
 
 }

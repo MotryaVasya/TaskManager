@@ -2,7 +2,7 @@
 
 namespace TelegramBot
 {
-    class Keyboard
+    class Keyboard // добавить поле с выводом всех задач 
     {
         public static ReplyKeyboardMarkup GetButtonKeyboard()
         {
