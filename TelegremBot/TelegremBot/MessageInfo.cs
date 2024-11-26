@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,28 +8,32 @@ namespace TelegremBot
 {
     static class MessageInfo // заполнить поля RusMessage и EnMessage
     {
-        private static Dictionary<string, string> RusMessage = new Dictionary<string, string>()
+        private static Dictionary<TypeErrorMessage, string> RusMessage = new Dictionary<TypeErrorMessage, string>()
         {
-            { "we","qwe" },
-            { "we","qwe" },
-            { "we","qwe" },
-            { "we","qwe" },
+            { TypeErrorMessage.WriteTextFound ,"Не праввильный ввод данных,попробуйте ввести данные еще раз!" },
+            { TypeErrorMessage.TaskAdded,"qwe" },
+            { TypeErrorMessage.TaskDeleted,"qwe" },
+            { TypeErrorMessage.NeedCharSimbol,"qwe" },
 
         };
 
-        private static Dictionary<string, string> EnMessage = new Dictionary<string, string>()
+        private static Dictionary<TypeErrorMessage, string> EnMessage = new Dictionary<TypeErrorMessage, string>()
         {
-            { "we","qwe" },
-            { "we","qwe" },
-            { "we","qwe" },
-            { "we","qwe" },
+            { TypeErrorMessage.WriteTextFound ,"Не праввильный ввод данных,попробуйте ввести данные еще раз!" },
+            { TypeErrorMessage.TaskAdded,"qwe" },
+            { TypeErrorMessage.TaskDeleted,"qwe" },
+            { TypeErrorMessage.NeedCharSimbol,"qwe" },
         };
 
     }
-    public enum Type
+    public enum TypeErrorMessage
     {
-        None,
-        empty
+        WriteTextFound = 1,
+        TaskAdded,
+        TaskDeleted,
+        NeedCharSimbol,
+        
+        
     }
 
 }
