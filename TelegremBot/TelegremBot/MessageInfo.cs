@@ -29,6 +29,7 @@ namespace TelegremBot
     public enum Type
     {
         None,
+        empty
     }
 
 }
