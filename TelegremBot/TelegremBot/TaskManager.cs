@@ -15,8 +15,8 @@ namespace TelegramBot
         {
             if (Exist(task))
             {
-                return MessageInfo.GetMessage(TypeMessage.TaskAdded);
                 Tasks.Add(task);
+                return MessageInfo.GetMessage(TypeMessage.TaskAdded);
             }
             return MessageInfo.GetMessage(TypeMessage.Nonexistent);
 

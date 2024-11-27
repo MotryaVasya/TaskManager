@@ -14,11 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TelegremBot")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-<<<<<<< HEAD
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+995dfbdcf5d43f0e2b55e370455b5831e9a5e630")]
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4952d6015febb5014c5ed74692ab101d826d8df9")]
->>>>>>> feature
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+187481989ec471a90fec71d8c3984f2619edd5a5")]
 [assembly: System.Reflection.AssemblyProductAttribute("TelegremBot")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TelegremBot")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

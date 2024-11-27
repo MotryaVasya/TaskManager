@@ -8,12 +8,14 @@ namespace TelegremBot
 {
     static class MessageInfo // заполнить поля RusMessage и EnMessage
     {
+        public static int countSendGetMessage = 0;
         public static int Num = 0;
         private static Dictionary<TypeMessage, string> RusMessage = new Dictionary<TypeMessage, string>()
         {
             { TypeMessage.WriteTextFound ,"Не правильный ввод данных,попробуйте ввести данные еще раз!" },
             { TypeMessage.TaskExist,"Такая задача уже существует" },
             { TypeMessage.NeedLetters,"Введите буквы!" },
+            { TypeMessage.LanguageModified, "Язык изменен!" },
 #region TextForActionWithTask
             { TypeMessage.TaskAdded,"Задача добавлена!" },
             { TypeMessage.TaskDeleted,"Задача удалена!" },
@@ -35,6 +37,8 @@ namespace TelegremBot
             { TypeMessage.WriteTextFound ,"Incorrect data entry, try entering the data again!" },
             { TypeMessage.TaskExist,"That task exist!" },
             { TypeMessage.NeedLetters,"Enter letters!" },
+            { TypeMessage.LanguageModified, "Language Modified!" },
+
 #region TextForActionWithTask
             { TypeMessage.TaskAdded,"Task added!" },
             { TypeMessage.TaskDeleted,"Task deleted!" },
@@ -66,9 +70,11 @@ namespace TelegremBot
             {
                 if (message == item.Key)
                 {
+                    countSendGetMessage++;
                     return item.Value;
                 }
             }
+            countSendGetMessage++;
             return string.Empty;
         }
 
@@ -88,6 +94,7 @@ namespace TelegremBot
         TaskDelete,
         TaskAdd,
         ModifyLanguage,
+        LanguageModified,
     }
 
 }

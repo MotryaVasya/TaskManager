@@ -33,3 +33,22 @@ C:\Users\vaso\OneDrive\Рабочий стол\Task Manager\TaskManager\Telegrem
 C:\Users\vaso\OneDrive\Рабочий стол\Task Manager\TaskManager\TelegremBot\TelegremBot\obj\Debug\net8.0\TelegremBot.pdb
 C:\Users\vaso\OneDrive\Рабочий стол\Task Manager\TaskManager\TelegremBot\TelegremBot\obj\Debug\net8.0\TelegremBot.genruntimeconfig.cache
 C:\Users\vaso\OneDrive\Рабочий стол\Task Manager\TaskManager\TelegremBot\TelegremBot\obj\Debug\net8.0\ref\TelegremBot.dll
+C:\Users\STUDENT\Desktop\Task Manager\TaskManager\TelegremBot\TelegremBot\obj\Debug\net8.0\TelegremBot.dll
+C:\Users\STUDENT\Desktop\Task Manager\TaskManager\TelegremBot\TelegremBot\obj\Debug\net8.0\refint\TelegremBot.dll
+C:\Users\STUDENT\Desktop\Task Manager\TaskManager\TelegremBot\TelegremBot\obj\Debug\net8.0\TelegremBot.pdb
+C:\Users\STUDENT\Desktop\Task Manager\TaskManager\TelegremBot\TelegremBot\obj\Debug\net8.0\TelegremBot.csproj.AssemblyReference.cache
+C:\Users\STUDENT\Desktop\Task Manager\TaskManager\TelegremBot\TelegremBot\obj\Debug\net8.0\TelegremBot.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\STUDENT\Desktop\Task Manager\TaskManager\TelegremBot\TelegremBot\obj\Debug\net8.0\TelegremBot.AssemblyInfoInputs.cache
+C:\Users\STUDENT\Desktop\Task Manager\TaskManager\TelegremBot\TelegremBot\obj\Debug\net8.0\TelegremBot.AssemblyInfo.cs
+C:\Users\STUDENT\Desktop\Task Manager\TaskManager\TelegremBot\TelegremBot\obj\Debug\net8.0\TelegremBot.csproj.CoreCompileInputs.cache
+C:\Users\STUDENT\Desktop\Task Manager\TaskManager\TelegremBot\TelegremBot\obj\Debug\net8.0\TelegremBot.sourcelink.json
+C:\Users\STUDENT\Desktop\Task Manager\TaskManager\TelegremBot\TelegremBot\bin\Debug\net8.0\TelegremBot.exe
+C:\Users\STUDENT\Desktop\Task Manager\TaskManager\TelegremBot\TelegremBot\bin\Debug\net8.0\TelegremBot.deps.json
+C:\Users\STUDENT\Desktop\Task Manager\TaskManager\TelegremBot\TelegremBot\bin\Debug\net8.0\TelegremBot.runtimeconfig.json
+C:\Users\STUDENT\Desktop\Task Manager\TaskManager\TelegremBot\TelegremBot\bin\Debug\net8.0\TelegremBot.dll
+C:\Users\STUDENT\Desktop\Task Manager\TaskManager\TelegremBot\TelegremBot\bin\Debug\net8.0\TelegremBot.pdb
+C:\Users\STUDENT\Desktop\Task Manager\TaskManager\TelegremBot\TelegremBot\bin\Debug\net8.0\System.Text.Json.dll
+C:\Users\STUDENT\Desktop\Task Manager\TaskManager\TelegremBot\TelegremBot\bin\Debug\net8.0\Telegram.Bot.dll
+C:\Users\STUDENT\Desktop\Task Manager\TaskManager\TelegremBot\TelegremBot\obj\Debug\net8.0\Telegrem.A8BCE862.Up2Date
+C:\Users\STUDENT\Desktop\Task Manager\TaskManager\TelegremBot\TelegremBot\obj\Debug\net8.0\TelegremBot.genruntimeconfig.cache
+C:\Users\STUDENT\Desktop\Task Manager\TaskManager\TelegremBot\TelegremBot\obj\Debug\net8.0\ref\TelegremBot.dll

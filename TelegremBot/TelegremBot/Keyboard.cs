@@ -3,11 +3,11 @@ using TelegremBot;
 
 namespace TelegramBot
 {
-    class Keyboard // добавить поле с выводом всех задач 
+    class Keyboard 
     {
         public static ReplyKeyboardMarkup GetButtonKeyboard()
         {
-            ReplyKeyboardMarkup kbrd = new ReplyKeyboardMarkup(new KeyboardButton[][]
+            var kbrd = new ReplyKeyboardMarkup(new KeyboardButton[][]
             {
         new []  {
                 new KeyboardButton(MessageInfo.GetMessage(TypeMessage.TaskAdd))
