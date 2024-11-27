@@ -3,24 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\STUDENT\\Desktop\\Task Manager\\TaskManager\\TelegremBot\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{738CA525-DA7D-4479-A5BC-D86347D8062C}|TelegremBot\\TelegremBot.csproj|c:\\users\\student\\desktop\\task manager\\taskmanager\\telegrembot\\telegrembot\\messageinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{738CA525-DA7D-4479-A5BC-D86347D8062C}|TelegremBot\\TelegremBot.csproj|solutionrelative:telegrembot\\messageinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\STUDENT\\Desktop\\Task Manager\\TaskManager\\TelegremBot\\TelegremBot\\MessageInfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:TelegremBot\\MessageInfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{738CA525-DA7D-4479-A5BC-D86347D8062C}|TelegremBot\\TelegremBot.csproj|c:\\users\\student\\desktop\\task manager\\taskmanager\\telegrembot\\telegrembot\\task.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{738CA525-DA7D-4479-A5BC-D86347D8062C}|TelegremBot\\TelegremBot.csproj|solutionrelative:telegrembot\\task.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\STUDENT\\Desktop\\Task Manager\\TaskManager\\TelegremBot\\TelegremBot\\Task.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:TelegremBot\\Task.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{738CA525-DA7D-4479-A5BC-D86347D8062C}|TelegremBot\\TelegremBot.csproj|c:\\users\\student\\desktop\\task manager\\taskmanager\\telegrembot\\telegrembot\\taskmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{738CA525-DA7D-4479-A5BC-D86347D8062C}|TelegremBot\\TelegremBot.csproj|solutionrelative:telegrembot\\taskmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\STUDENT\\Desktop\\Task Manager\\TaskManager\\TelegremBot\\TelegremBot\\TaskManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:TelegremBot\\TaskManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{738CA525-DA7D-4479-A5BC-D86347D8062C}|TelegremBot\\TelegremBot.csproj|c:\\users\\student\\desktop\\task manager\\taskmanager\\telegrembot\\telegrembot\\keyboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{738CA525-DA7D-4479-A5BC-D86347D8062C}|TelegremBot\\TelegremBot.csproj|solutionrelative:telegrembot\\keyboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\STUDENT\\Desktop\\Task Manager\\TaskManager\\TelegremBot\\TelegremBot\\Keyboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:TelegremBot\\Keyboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{738CA525-DA7D-4479-A5BC-D86347D8062C}|TelegremBot\\TelegremBot.csproj|c:\\users\\student\\desktop\\task manager\\taskmanager\\telegrembot\\telegrembot\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{738CA525-DA7D-4479-A5BC-D86347D8062C}|TelegremBot\\TelegremBot.csproj|solutionrelative:telegrembot\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\STUDENT\\Desktop\\Task Manager\\TaskManager\\TelegremBot\\TelegremBot\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:TelegremBot\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
