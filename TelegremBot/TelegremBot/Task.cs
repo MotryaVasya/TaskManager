@@ -1,7 +1,7 @@
 ﻿using System;
 namespace TelegramBot
 {
-    class Task // Готов, по мере послупления проблем можно будет изменить 
+    class Task // Готов, по мере поступления проблем можно будет изменить 
     {
         private string _name;
         private string _description;
