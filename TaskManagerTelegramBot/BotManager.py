@@ -24,7 +24,7 @@ def start(message):
     mm.add(button_add_task, button_delete_task, button_update_task, button_show_tasks, button_modify_language)
 
 
-@bot.message_handler(func=lambda message: message.text == MI.GetMessage(TypeMessage.ModifyLanguage) or MI.Num == 1 or MI.Num == 0)
+@bot.message_handler(func=lambda message: message.text == MI.GetMessage(TypeMessage.ModifyLanguage))
 def modify_language(message):
     # Modify the button
     ModifyLanguage()
@@ -41,17 +41,18 @@ def modify_language(message):
     bot.send_message(message.chat.id, MI.GetMessage(TypeMessage.LanguageModified), reply_markup=markup)
 
 
-@bot.message_handler(func=lambda message: message.text == MI.GetMessage(TypeMessage.TaskAdd) or MI.Num == 1 or MI.Num == 0)
+@bot.message_handler(func=lambda message: message.text == MI.GetMessage(TypeMessage.TaskAdd)) # разобраться с MI.Num
 def handler(message):# доделать метод
-    task = Task.Task()
+    name = ''
+    description = ''
     bot.send_message(message.chat.id, "Введите текст для переменной name:")
-    bot.register_next_step_handler(message, save_name, task)
+    bot.register_next_step_handler(message, save_name, name)
 
-def save_name(message, task):
+def save_name(message):
         # Сохраняем текст следующего сообщения в переменную name
     name = message.text
         # Для примера выведем имя и подтвердим его сохранение
-    bot.send_message(message.chat.id, f"Имя '{name}' сохранено.")
+    return name
         # Здесь можно выполнить дополнительные действия с переменной `task`
 
 
