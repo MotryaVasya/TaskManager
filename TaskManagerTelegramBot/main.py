@@ -1,0 +1,2 @@
+import BotManager
+BotManager.infinity()
