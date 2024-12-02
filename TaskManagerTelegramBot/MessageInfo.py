@@ -14,14 +14,16 @@ class TypeMessage(Enum):
     ModifyLanguage = 12
     LanguageModified = 13
     WelcomeBack = 14
+    ThisBotStarted = 15
 
 
 class MessageInfo:
     CountSendGetMessage = 0
     Num = 0
+    count = 0
 
     RusMessage = {
-        TypeMessage.WriteTextFound: "Не правильный ввод данных,попробуйте ввести данные еще раз!",
+        TypeMessage.WriteTextFound: "Не правильный ввод данных, попробуйте ввести данные еще раз!",
         TypeMessage.TaskExist: "Такая задача уже существует",
         TypeMessage.NeedLetters: "Введите буквы!",
         TypeMessage.LanguageModified: "Язык изменен!",
@@ -35,6 +37,7 @@ class MessageInfo:
         TypeMessage.TaskAdd: "Добавить задачу!",
         TypeMessage.ModifyLanguage: "Изменить на Английский",
         TypeMessage.WelcomeBack: "С возвращением!",
+        TypeMessage.ThisBotStarted: "Вы уже запустили бота!",
     }
 
     EnMessage = {
@@ -52,6 +55,7 @@ class MessageInfo:
         TypeMessage.TaskAdd: "Add task",
         TypeMessage.ModifyLanguage: "Modify to Russian",
         TypeMessage.WelcomeBack: "Welcome back!",
+        TypeMessage.ThisBotStarted: "You've already started the bot!"
 
     }
 
