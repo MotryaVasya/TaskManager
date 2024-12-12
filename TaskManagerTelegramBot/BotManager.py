@@ -1,76 +1,69 @@
-from datetime import date
-import telebot
-from telebot import types
-import Task
-from MessageInfo import MessageInfo as MI, TypeMessage
+from datetime import datetime
+from aiohttp.web_routedef import route
+from sqlalchemy.util import await_only, await_fallback
 from Task import *
-
-bot = telebot.TeleBot('7559173892:AAGF9i5R8FiGhdM6M4UpjycTWDa8ku2Fyc8')
-mm = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True, one_time_keyboard=True)
-
-
-
-def check_started_bot(message): # переставить поле count в другой класс
-    if MI.count > 0:
-        bot.send_message(message.chat.id, MI.GetMessage(TypeMessage.ThisBotStarted))
-        return False
-    else:
-        MI.count += 1
-        return True
-
-def ModifyLanguage():
-    if MI.Num == 0:
-        MI.Num = 1
-    else:
-        MI.Num = 0
+from aiogram import Router, F, Dispatcher
+from aiogram.types import Message
+from aiogram.filters import CommandStart
+from aiogram.fsm.state import State, StatesGroup
+from aiogram.fsm.context import FSMContext
+import Keyboards as kb
 
 
-@bot.message_handler(commands=['start'])
-def start(message):
-    if check_started_bot(message):
-        button_add_task = types.KeyboardButton(MI.GetMessage(TypeMessage.TaskAdd))
-        button_delete_task = types.KeyboardButton(MI.GetMessage(TypeMessage.TaskDelete))
-        button_update_task = types.KeyboardButton(MI.GetMessage(TypeMessage.TaskUpdate))
-        button_show_tasks = types.KeyboardButton(MI.GetMessage(TypeMessage.ShowTasks))
-        button_modify_language = types.KeyboardButton(MI.GetMessage(TypeMessage.ModifyLanguage))
-        bot.send_message(message.chat.id, MI.GetMessage(TypeMessage.WelcomeBack), reply_markup=mm)
-        mm.add(button_add_task, button_delete_task, button_update_task, button_show_tasks, button_modify_language)
-    else:
-        return
+router = Router()
+task = Task()
+class TaskAdder(StatesGroup):
+    name = State()
+    description = State()
+    start_time = State()
+    end_time = State()
+    priority = State()
+
+@router.message(CommandStart())
+async def cmd_start(message: Message):
+  await message.answer("С возвращением!",
+                       reply_markup=kb.main)
 
 
-
-@bot.message_handler(func=lambda message: message.text == MI.GetMessage(TypeMessage.ModifyLanguage) and MI.Num == 1 or MI.Num == 0)
-def modify_language(message):
-    ModifyLanguage()
-    markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
-    button1 = types.KeyboardButton(MI.GetMessage(TypeMessage.TaskAdd))
-    button2 = types.KeyboardButton(MI.GetMessage(TypeMessage.TaskDelete))
-    button3 = types.KeyboardButton(MI.GetMessage(TypeMessage.TaskUpdate))
-    button4 = types.KeyboardButton(MI.GetMessage(TypeMessage.ShowTasks))
-    button5 = types.KeyboardButton(MI.GetMessage(TypeMessage.ModifyLanguage))
-    markup.add(button1, button2, button3, button4, button5)
-    bot.send_message(message.chat.id, MI.GetMessage(TypeMessage.LanguageModified), reply_markup=markup)
-
-@bot.message_handler(func=lambda message: message.text == MI.GetMessage(TypeMessage.TaskAdd) and MI.Num == 1 or MI.Num == 0)
-def Task_Add(message):# доделать метод
-    bot.send_message(message.chat.id, "Введите название задачи!")
-    name = ""
-    description = ""
-    start_time = date
-    end_time = date
-    priority = 0
+@router.message(F.text == 'Добавить задачу')
+async def task_add(message: Message, state: FSMContext):
+    await state.set_state(TaskAdder.name)
+    await message.answer('Введите название задачи!')
 
 
-    task = Task.Task(name, description, start_time, end_time, priority)
+@router.message(TaskAdder.name)
+async def get_name(message: Message, state: FSMContext):
+    task.name = message.text
+    await state.set_state(TaskAdder.description)
+    await message.answer('Введите описание задачи!')
 
-def save_name(message):
-        # Сохраняем текст следующего сообщения в переменную name
-    name = message.chat.id+1
-        # Для примера выведем имя и подтвердим его сохранение
-    return name
-        # Здесь можно выполнить дополнительные действия с переменной `task`
+@router.message(TaskAdder.description)
+async def get_description(message: Message, state: FSMContext):
+    task.description = message.text
+    await state.set_state(TaskAdder.start_time)
+    await message.answer('Введите дату начала задачи (в формате дд.мм.гггг)!')
 
+@router.message(TaskAdder.start_time)
+async def get_start_time(message: Message, state: FSMContext):
+    try:
+        task.start_date = datetime.strptime(message.text, "%d.%m.%Y")
+        await state.set_state(TaskAdder.end_time)
+        await message.answer('Введите дату окончания задачи (в формате дд.мм.гггг)!')
+    except ValueError:
+        await message.answer('Неправильный формат даты. Пожалуйста, введите дату в формате дд.мм.гггг')
 
-def infinity():
-    bot.infinity_polling()
+@router.message(TaskAdder.end_time)
+async def get_end_time(message: Message, state: FSMContext):
+    try:
+        task.finish_date = datetime.strptime(message.text, "%d.%m.%Y")
+        await state.set_state(TaskAdder.priority)
+        await message.answer('Введите приоритет задачи (от 1 до 9)!')
+    except ValueError:
+        await message.answer('Неправильный формат даты. Пожалуйста, введите дату в формате дд.мм.гггг')
+
+@router.message(TaskAdder.priority)
+async def get_priority(message: Message, state: FSMContext):
+    task.priority = message.text
+    await state.clear()
+    await message.answer('Задача добавлена!')
+    print(task.name, task.start_date, task.finish_date,task.priority)
