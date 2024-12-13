@@ -42,13 +42,18 @@ def add_task():
     task_start_date = request.json.get('start_date', datetime.now())
     task_finish_date = request.json.get('finish_date', datetime.now() + timedelta(days=1))
 
-    task = Task(name=task_name, description=task_description, priority=task_priority, start_date=task_start_date,
-                finish_date=task_finish_date)
+    task = Task()
+    task.name = task_name
+    task.description = task_description
+    task.start_date = task_start_date
+    task.finish_date = task_finish_date
+    task.priority = task_priority
 
     try:
         db.session.add(task)
         db.session.commit()
     except Exception as e:
+        print(str(e))
         return jsonify({"error": str(e)}), 500
 
     return jsonify({'id': task.id, 'name': task.name, 'description': task.description, 'priority': task.priority,
