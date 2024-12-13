@@ -82,5 +82,19 @@ def update_task(task_id):
     return jsonify({'id': task.id, 'name': task.name, 'description': task.description, 'priority': task.priority,
                     'start_date': task.start_date, 'finish_date': task.finish_date})
 
+@app.route("/tasks/<int:task_id>", methods=["DELETE"])
+def delete_task(task_id):
+    task = Task.query.get(task_id)
+    if task is None:
+        return jsonify({"error": "Задача не найдена"}), 404
+
+    try:
+        db.session.delete(task)
+        db.session.commit()
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+    return jsonify({"message": "Задача успешно удалена"}), 204
+
 if __name__ == '__main__':
     app.run(debug=True)
