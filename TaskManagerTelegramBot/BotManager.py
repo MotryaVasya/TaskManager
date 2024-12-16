@@ -65,8 +65,6 @@ async def get_end_time(message: Message, state: FSMContext):
 async def get_priority(message: Message, state: FSMContext):
     task.priority = message.text
     await state.clear()
-    await message.answer('Задача добавлена!')
-
     async with aiohttp.ClientSession() as session:
         async with session.post(API_URL, json={
             'name': task.name,
@@ -76,7 +74,8 @@ async def get_priority(message: Message, state: FSMContext):
             'priority': task.priority
         }) as response:
             if response.status == 201:
-                await message.answer('Задача добавлена!')
+                await message.answer("Задача добавлена!",
+                       reply_markup=kb.main)
             else:
                 await message.answer('Ошибка при добавлении задачи!')
 
