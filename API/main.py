@@ -24,12 +24,23 @@ class Task(db.Model):
     start_date = db.Column(DateTime, default=datetime.now)
     finish_date = db.Column(DateTime, default=lambda: datetime.now() + timedelta(days=1))
 
+
 @app.route('/tasks', methods=['GET'])
 def get_tasks():
     tasks = Task.query.all()
     return jsonify([{'id': task.id, 'name': task.name, 'description': task.description,
                      'priority': task.priority, 'start_date': task.start_date,
                      'finish_date': task.finish_date} for task in tasks])
+
+@app.route('/tasks/<int:task_id>', methods=['GET'])
+def get_task(task_id):
+    task = Task.query.get(task_id)
+    if task:
+        return jsonify({'id': task.id, 'name': task.name, 'description': task.description,
+                        'priority': task.priority, 'start_date': task.start_date,
+                        'finish_date': task.finish_date})
+    else:
+        return jsonify({'error': 'Task not found'}), 404
 
 @app.route('/tasks', methods=['POST'])
 def add_task():
@@ -86,9 +97,10 @@ def delete_task(task_id):
         return jsonify({"error": "Задача не найдена"}), 404
 
     try:
-        db.session.delete(task)
-        db.session.commit()
+        db.session.delete(task)  # Удаляем задачу из сессии
+        db.session.commit()       # Коммитим изменения
     except Exception as e:
+        db.session.rollback()     # Откатываем изменения в случае ошибки
         return jsonify({"error": str(e)}), 500
 
     return jsonify({"message": "Задача успешно удалена"}), 204
