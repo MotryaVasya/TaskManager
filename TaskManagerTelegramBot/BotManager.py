@@ -62,6 +62,7 @@ async def get_priority(message: Message, state: FSMContext):
     await state.clear()
     async with aiohttp.ClientSession() as session:
         async with session.post(API_URL, json={
+            'user_id': message.from_user.id,
             'name': task.name,
             'description': task.description,
             'start_date': task.start_date.strftime("%d.%m.%Y"),
@@ -84,7 +85,7 @@ class ShowAllTasks(StatesGroup):
 async def show_all_tasks(message: Message, state: FSMContext):
     await state.set_state(ShowAllTasks.tasks)
     async with aiohttp.ClientSession() as session:
-        async with session.get(API_URL) as response:
+        async with session.get(API_URL, params={'user_id': message.from_user.id}) as response:
             if response.status == 200:
                 tasks = await response.json()  # Получаем список задач в формате JSON
                 if tasks:
@@ -128,7 +129,7 @@ async def get_task_id_for_deletion(message: Message, state: FSMContext):
             return
 
         async with aiohttp.ClientSession() as session:
-            async with session.delete(f"{API_URL}/{task_id}") as response:
+            async with session.delete(f"{API_URL}/{task_id}", params={'user_id': message.from_user.id}) as response:
                 if response.status == 204:
                     await message.answer('Задача успешно удалена!', reply_markup=kb.main)
                     await state.clear()
@@ -168,7 +169,7 @@ async def get_task_id_for_update(message: Message, state: FSMContext):
         return
 
     async with aiohttp.ClientSession() as session:
-        async with session.get(f"{API_URL}/{task_id}") as response:
+        async with session.get(f"{API_URL}/{task_id}", params={'user_id': message.from_user.id}) as response:
             if response.status == 200:
                 task = await response.json()
                 await state.update_data(task_id=task_id, name=task['name'], description=task['description'],
@@ -286,7 +287,14 @@ async def get_new_priority(message: Message, state: FSMContext):
     }
 
     async with aiohttp.ClientSession() as session:
-        async with session.put(f"{API_URL}/{task_id}", json=updated_data) as response:
+        async with session.put(f"{API_URL}/{task_id}", json={
+            'user_id': message.from_user.id,
+            'name': new_name,
+            'description': new_description,
+            'start_date': new_start_date.strftime("%d.%m.%Y"),
+            'finish_date': new_finish_date.strftime("%d.%m.%Y"),
+            'priority': new_priority
+        }) as response:
             if response.status == 200:
                 await message.answer("Задача успешно обновлена!", reply_markup=kb.main)
             else:

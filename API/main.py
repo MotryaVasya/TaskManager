@@ -18,6 +18,7 @@ with app.app_context():
 class Task(db.Model):
     __tablename__ = 'tasks'
     id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.String(50), nullable=False) # Уникальный идентификатор пользователя
     name = db.Column(db.String(50), nullable=False)
     description = db.Column(db.Text, nullable=False)
     priority = db.Column(db.Integer, CheckConstraint('priority BETWEEN 1 AND 9'), default=5)
@@ -27,27 +28,36 @@ class Task(db.Model):
 
 @app.route('/tasks', methods=['GET'])
 def get_tasks():
-    tasks = Task.query.all()
+    user_id = request.args.get('user_id')
+    if not user_id:
+        return jsonify({"error": "user_id is required"}), 400
+
+    tasks = Task.query.filter_by(user_id=user_id).all()
     return jsonify([{'id': task.id, 'name': task.name, 'description': task.description,
                      'priority': task.priority, 'start_date': task.start_date,
                      'finish_date': task.finish_date} for task in tasks])
 
 @app.route('/tasks/<int:task_id>', methods=['GET'])
 def get_task(task_id):
-    task = Task.query.get(task_id)
+    user_id = request.args.get('user_id')
+    if not user_id:
+        return jsonify({"error": "user_id is required"}), 400
+
+    task = Task.query.filter_by(id=task_id, user_id=user_id).first()
     if task:
         return jsonify({'id': task.id, 'name': task.name, 'description': task.description,
                         'priority': task.priority, 'start_date': task.start_date,
                         'finish_date': task.finish_date})
     else:
-        return jsonify({'error': 'Task not found'}), 404
+        return jsonify({'error': 'Task not found or does not belong to the user'}), 404
 
 @app.route('/tasks', methods=['POST'])
 def add_task():
-    if not request.json or 'name' not in request.json or 'description' not in request.json or 'priority' not in request.json:
-        return jsonify({"error": "Необходимо передать поля name, description и priority"}), 400
+    if not request.json or 'user_id' not in request.json or 'name' not in request.json:
+        return jsonify({"error": "Необходимо передать поля user_id, name, description и priority"}), 400
 
     task = Task(
+        user_id=request.json['user_id'],
         name=request.json['name'],
         description=request.json['description'],
         priority=request.json['priority'],
@@ -68,12 +78,16 @@ def add_task():
 
 @app.route("/tasks/<int:task_id>", methods=["PUT"])
 def update_task(task_id):
-    task = Task.query.get(task_id)
-    if task is None:
-        return jsonify({"error": "Задача не найдена"}), 404
+    user_id = request.json.get('user_id')
+    if not user_id:
+        return jsonify({"error": "user_id is required"}), 400
+
+    task = Task.query.filter_by(id=task_id, user_id=user_id).first()
+    if not task:
+        return jsonify({"error": "Task not found or does not belong to the user"}), 404
 
     if not request.json or 'name' not in request.json or 'description' not in request.json or 'priority' not in request.json:
-        return jsonify({"error": "Необходимо передать поля name, description и priority"}), 400
+        return jsonify({"error": "Fields name, description, and priority are required"}), 400
 
     task.name = request.json['name']
     task.description = request.json['description']
@@ -92,18 +106,23 @@ def update_task(task_id):
 
 @app.route("/tasks/<int:task_id>", methods=["DELETE"])
 def delete_task(task_id):
-    task = Task.query.get(task_id)
-    if task is None:
-        return jsonify({"error": "Задача не найдена"}), 404
+    user_id = request.args.get('user_id')
+    if not user_id:
+        return jsonify({"error": "user_id is required"}), 400
+
+    task = Task.query.filter_by(id=task_id, user_id=user_id).first()
+    if not task:
+        return jsonify({"error": "Task not found or does not belong to the user"}), 404
 
     try:
-        db.session.delete(task)  # Удаляем задачу из сессии
-        db.session.commit()       # Коммитим изменения
+        db.session.delete(task)
+        db.session.commit()
     except Exception as e:
-        db.session.rollback()     # Откатываем изменения в случае ошибки
+        db.session.rollback()
         return jsonify({"error": str(e)}), 500
 
-    return jsonify({"message": "Задача успешно удалена"}), 204
+    return jsonify({"message": "Task successfully deleted"}), 204
+
 
 if __name__ == '__main__':
     app.run(debug=True)
