@@ -202,19 +202,16 @@ async def get_new_name(message: Message, state: FSMContext):
 
     await message.answer('Введите новое описание задачи (или введите "пропустить" для сохранения текущего):')
     await state.set_state(TaskUpdater.description)
-
 @router.message(TaskUpdater.description)
 async def get_new_description(message: Message, state: FSMContext):
     data = await state.get_data()
     task_id = data.get('task_id')
     current_description = data.get('description')  # Получаем текущее значение
-
     new_description = message.text
     if new_description.lower() != 'пропустить':
         await state.update_data(description=new_description)
     else:
         await state.update_data(description=current_description)  # Сохраняем предыдущее значение
-
     await message.answer('Введите новую дату начала задачи (в формате дд.мм.гггг, или введите "пропустить" для сохранения текущей):')
     await state.set_state(TaskUpdater.start_time)
 
@@ -277,6 +274,7 @@ async def get_new_priority(message: Message, state: FSMContext):
     else:
         await state.update_data(priority=current_priority)  # Сохраняем предыдущее значение
 
+    data = await state.get_data()
     # Получаем обновленные данные и отправляем запрос на обновление
     updated_data = {
         'name': data.get('name'),
@@ -285,15 +283,16 @@ async def get_new_priority(message: Message, state: FSMContext):
         'finish_date': data.get('finish_date'),
         'priority': data.get('priority')
     }
-
+    start_date = updated_data['start_date']
+    finish_date = updated_data['finish_date']
     async with aiohttp.ClientSession() as session:
         async with session.put(f"{API_URL}/{task_id}", json={
             'user_id': message.from_user.id,
-            'name': new_name,
-            'description': new_description,
-            'start_date': new_start_date.strftime("%d.%m.%Y"),
-            'finish_date': new_finish_date.strftime("%d.%m.%Y"),
-            'priority': new_priority
+            'name': updated_data['name'],
+            'description': updated_data['description'],
+            'start_date': start_date,
+            'finish_date': finish_date,
+            'priority': updated_data['priority']
         }) as response:
             if response.status == 200:
                 await message.answer("Задача успешно обновлена!", reply_markup=kb.main)

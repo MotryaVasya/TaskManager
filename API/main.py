@@ -82,7 +82,7 @@ def update_task(task_id):
     if not user_id:
         return jsonify({"error": "user_id is required"}), 400
 
-    task = Task.query.filter_by(id=task_id, user_id=user_id).first()
+    task = Task.query.filter_by(id=task_id, user_id=str(user_id)).first()
     if not task:
         return jsonify({"error": "Task not found or does not belong to the user"}), 404
 
@@ -106,11 +106,11 @@ def update_task(task_id):
 
 @app.route("/tasks/<int:task_id>", methods=["DELETE"])
 def delete_task(task_id):
-    user_id = request.args.get('user_id')
+    user_id = int(request.args.get('user_id'))
     if not user_id:
         return jsonify({"error": "user_id is required"}), 400
 
-    task = Task.query.filter_by(id=task_id, user_id=user_id).first()
+    task = Task.query.filter_by(id=task_id, user_id=str(user_id)).first()
     if not task:
         return jsonify({"error": "Task not found or does not belong to the user"}), 404
 
