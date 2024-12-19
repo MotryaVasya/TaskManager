@@ -1,31 +1,51 @@
 from aiogram.client.session import aiohttp
+
+from Keyboards import replyMarkup
 from Task import *
 from aiogram import Router, F, Dispatcher
-from aiogram.types import Message
+from aiogram.types import Message, CallbackQuery
 from aiogram.filters import CommandStart
 from aiogram.fsm.state import State, StatesGroup
 from aiogram.fsm.context import FSMContext
 import Keyboards as kb
 import requests
+from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from aiogram.filters.callback_data import CallbackData
+import re
 
 router = Router()
 task = Task()
 tasks = []
 API_URL = "http://localhost:5000/tasks"
 
-
 @router.message(CommandStart())
 async def cmd_start(message: Message):
   await message.answer("С возвращением!",
-                       reply_markup=kb.main)
+                       reply_markup=kb.replyMarkup)
+
 
 #<editor-fold desc="TASK_ADD">
 class TaskAdder(StatesGroup):
     name = State()
     description = State()
+    day_start =State()
+    month_start = State()
+    year_start = State()
     start_time = State()
+    day_finish =State()
+    month_finish = State()
+    year_finish = State()
     end_time = State()
     priority = State()
+
+class TimeState(StatesGroup):
+    day_start =State()
+    month_start = State()
+    year_start = State()
+
+    day_finish =State()
+    month_finish = State()
+    year_finish = State()
 @router.message(F.text == 'Добавить задачу')
 async def task_add(message: Message, state: FSMContext):
     await state.set_state(TaskAdder.name)
@@ -38,16 +58,123 @@ async def get_name(message: Message, state: FSMContext):
 @router.message(TaskAdder.description)
 async def get_description(message: Message, state: FSMContext):
     task.description = message.text
+    await state.set_state(TimeState.year_start)
+    await message.answer('Выберите год когда должна начаться задача',
+                         reply_markup = kb.inlineMarkup_years)
+
+@router.callback_query(TimeState.year_start)
+async def get_Year(callback_query: CallbackQuery, state: FSMContext):
+    Year = await get_text_InlineButton(callback_query)  # Дожидаемся выполнения асинхронной функции
+    print(Year)
+    await state.update_data(year_start=Year)  # Сохраняем год в состояние
+
+    await callback_query.message.answer(
+        text="Выберите месяц начала задачи",
+        reply_markup=kb.inlineMarkup_months
+    )
+    await state.set_state(TimeState.month_start)  # Переключаемся на состояние месяца
+
+# Обработчик для месяца
+@router.callback_query(TimeState.month_start)
+async def get_month(callback_query: CallbackQuery, state: FSMContext):
+    Month = await get_text_InlineButton(callback_query)  # Дожидаемся выполнения
+    print(Month)
+    await state.update_data(month_start=Month)  # Сохраняем месяц в состояние
+
+    await callback_query.message.answer(
+        text="Выберите день начала задачи",
+        reply_markup=kb.inlineMarkup_days
+    )
+    await state.set_state(TimeState.day_start)  # Переключаемся на состояние дня
+
+# Обработчик для дня
+@router.callback_query(TimeState.day_start)
+async def get_day(callback_query: CallbackQuery, state: FSMContext):
+    Day = await get_text_InlineButton(callback_query)  # Дожидаемся выполнения
+    await state.update_data(day_start=Day)  # Сохраняем день в состояние
+    print(Day)
+    # Переход в состояние start_time после выбора дня
     await state.set_state(TaskAdder.start_time)
-    await message.answer('Введите дату начала задачи (в формате дд.мм.гггг)!')
-@router.message(TaskAdder.start_time)
-async def get_start_time(message: Message, state: FSMContext):
+    await callback_query.message.answer(
+        text="Успешно добавлена дата начала задачи:"
+    )
+    print(await state.get_data())
+
+
+@router.callback_query(TaskAdder.start_time)
+async def get_start_time(callback_query: CallbackQuery, state: FSMContext):
+    await print("HI")
     try:
-        task.start_date = datetime.strptime(message.text, "%d.%m.%Y")
-        await state.set_state(TaskAdder.end_time)
-        await message.answer('Введите дату окончания задачи (в формате дд.мм.гггг)!')
+        # Получаем сохранённые данные
+        data = await state.get_data()
+        # Извлекаем значения для дня, месяца и года
+        Day = data.get('day_start')
+        Month = data.get('month_start')
+        Year = data.get('year_start')
+
+        # Проверяем, что все значения есть
+        if not all([Day, Month, Year]):
+            await callback_query.message.answer('Некоторые данные отсутствуют. Попробуйте снова.')
+            return
+
+        # Формируем строку даты
+        task.start_date = datetime.strptime(f"{Day}.{Month}.{Year}", "%d.%m.%Y")
+
+        # Переходим к следующему состоянию (например, для окончания задачи)
+        await state.set_state(TaskAdder.year_finish)
+        await callback_query.message.answer(
+            text="Теперь выберите год окончания задачи.",
+            reply_markup=kb.inlineMarkup_years
+        )
     except ValueError:
-        await message.answer('Неправильный формат даты. Пожалуйста, введите дату в формате дд.мм.гггг')
+        await callback_query.message.answer('Неправильный формат даты. Пожалуйста, введите дату в формате дд.мм.гггг')
+
+
+@router.callback_query(TaskAdder.year_finish)
+async def get_Year(callback_query: CallbackQuery, state: FSMContext):
+    Year = await get_text_InlineButton(callback_query)  # Дожидаемся выполнения асинхронной функции
+    await state.update_data(year_finish=Year)  # Сохраняем год в состояние
+
+    await callback_query.message.answer(
+        text="Выберите месяц завершения задачи",
+        reply_markup=kb.inlineMarkup_months
+    )
+    await state.set_state(TaskAdder.month_finish)  # Переключаемся на состояние месяца
+
+# Обработчик для месяца
+@router.callback_query(TaskAdder.month_finish)
+async def get_month(callback_query: CallbackQuery, state: FSMContext):
+    Month = await get_text_InlineButton(callback_query)  # Дожидаемся выполнения
+    await state.update_data(month_finish=Month)  # Сохраняем месяц в состояние
+
+    await callback_query.message.answer(
+        text="Выберите день завершения задачи",
+        reply_markup=kb.inlineMarkup_days
+    )
+    await state.set_state(TaskAdder.day_finish)  # Переключаемся на состояние дня
+
+# Обработчик для дня
+@router.callback_query(TaskAdder.day_finish)
+async def get_day(callback_query: CallbackQuery, state: FSMContext):
+    Day = await get_text_InlineButton(callback_query)  # Дожидаемся выполнения
+    await state.update_data(day_finish=Day)  # Сохраняем день в состояние
+
+    await state.set_state(TaskAdder.end_time)# Завершаем процесс добавления задачи
+
+
+
+async def get_text_InlineButton(callback_query):
+    button_text = None
+    for row in callback_query.message.reply_markup.inline_keyboard:
+        for button in row:
+            if button.callback_data == callback_query.data:
+                button_text = button.text
+                break
+        if button_text:
+            break
+    return button_text
+
+
 @router.message(TaskAdder.end_time)
 async def get_end_time(message: Message, state: FSMContext):
     try:
